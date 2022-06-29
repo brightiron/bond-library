@@ -2,6 +2,7 @@
 /node_modules
 
 #generated
+/build
 /src/lp-pairs/contracts
 
 # misc
