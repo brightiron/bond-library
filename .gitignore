@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+#generated
+/src/lp-pairs/contracts
+
+# misc
+.DS_Store
+.env
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.idea
+.vscode/**

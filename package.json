@@ -1,0 +1,32 @@
+{
+  "name": "@bond-labs/bond-library",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "author": "spaceturtleship <spaceturtleship@protonmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@typechain/ethers-v5": "^10.0.0",
+    "@types/jest": "^27.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "babel-jest": "^28.1.0",
+    "eslint": "^8.2.0",
+    "install-peerdeps": "^3.0.3",
+    "jest": "^28.1.0",
+    "typechain": "^8.1.0",
+    "typescript": "^4.7.2"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "ethers": "^5.6.8"
+  }
+}
