@@ -1,15 +1,15 @@
-import {CHAIN_ID} from "../chains/chains";
+import {CHAIN_ID} from "../chains";
 
-export type ContractAddresses = {
+export interface ContractAddress {
   authority: string;
   aggregator: string;
   fixedExpirationTeller: string;
   fixedExpirationAuctioneer: string;
   fixedTermTeller: string;
   fixedTermAuctioneer: string;
-};
+}
 
-const CONTRACTS = new Map<CHAIN_ID, ContractAddresses>([
+const CONTRACTS = new Map<CHAIN_ID, ContractAddress>([
   [
     CHAIN_ID.RINKEBY_TESTNET,
     {

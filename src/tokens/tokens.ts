@@ -1,6 +1,6 @@
 import axios from "axios";
-import {PROTOCOL_NAMES} from "../protocols/protocols";
-import {CHAIN_ID, CHAINS} from "../chains/chains";
+import {PROTOCOL_NAMES} from "../protocols";
+import {CHAIN_ID, CHAINS} from "../chains";
 import {SUPPORTED_LP_TYPES} from "../lp-pairs";
 
 export interface Token {

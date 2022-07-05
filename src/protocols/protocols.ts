@@ -1,4 +1,4 @@
-import {CHAIN_ID} from "../chains/chains";
+import {CHAIN_ID} from "../chains";
 
 interface Links {
   twitter?: string;
