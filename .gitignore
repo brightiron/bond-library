@@ -3,6 +3,8 @@
 
 #generated
 /build
+/dist
+dist
 /src/lp-pairs/contracts
 
 # misc
