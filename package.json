@@ -1,10 +1,13 @@
 {
   "name": "@bond-labs/bond-library",
   "version": "0.0.1",
-  "main": "src/index.ts",
   "author": "spaceturtleship <spaceturtleship@protonmail.com>",
   "license": "MIT",
   "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
@@ -23,7 +26,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "jest",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "typechain": "typechain --target ethers-v5 --out-dir src/lp-pairs/contracts 'src/lp-pairs/abis/*.json'"
   },
   "dependencies": {
     "axios": "^0.27.2",

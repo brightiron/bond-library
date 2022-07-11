@@ -1,4 +1,4 @@
-import {CHAIN_ID} from "../chains";
+import {CHAIN_ID} from "../chains/chains";
 
 interface Links {
   twitter?: string;
@@ -86,14 +86,14 @@ export enum PROTOCOL_NAMES {
   YIELD_YAK = "YIELD_YAK",
 }
 
-export function getProtocolByAddress(address: string, chain: CHAIN_ID): Protocol | null {
+export const getProtocolByAddress = function (address: string, chain: CHAIN_ID): Protocol | null {
   const res = ADDRESSES.filter((obj: Address) => chain === obj.chainId && obj.address === address);
   return PROTOCOLS.get(res[0]?.protocol) || null;
-}
+};
 
-export function getAddressesByProtocol(protocol: PROTOCOL_NAMES): Address[] {
+export const getAddressesByProtocol = function (protocol: PROTOCOL_NAMES): Address[] {
   return ADDRESSES.filter((obj: Address) => obj.protocol === protocol);
-}
+};
 
 const ADDRESSES = [
   {
@@ -247,7 +247,8 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       name: "BlackPool",
       logo: "",
-      description: "BlackPool is the first decentralised autonomous organisation (DAO) built solely for NFT gaming and trading.",
+      description:
+        "BlackPool is the first decentralised autonomous organisation (DAO) built solely for NFT gaming and trading.",
       links: {
         twitter: "@BlackpoolHQ",
         medium: "https://blackpool.medium.com/",
@@ -279,7 +280,8 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       name: "Crypto Raiders",
       logo: "",
-      description: "Crypto Raiders is an NFT-based dungeon crawler on Polygon. Raid dungeons, earn gear, level up, craft potions, and own all of your game assets on-chain.",
+      description:
+        "Crypto Raiders is an NFT-based dungeon crawler on Polygon. Raid dungeons, earn gear, level up, craft potions, and own all of your game assets on-chain.",
       links: {
         twitter: "@crypto_raiders",
         medium: "https://cryptoraiders.medium.com/",
@@ -293,7 +295,8 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       name: "Crypto Volatility Index",
       logo: "",
-      description: "The Crypto Volatility Index (CVI) is a decentralized VIX for crypto that allows users to hedge themselves against market volatility and impermanent loss.",
+      description:
+        "The Crypto Volatility Index (CVI) is a decentralized VIX for crypto that allows users to hedge themselves against market volatility and impermanent loss.",
       links: {
         twitter: "@official_cvi",
         medium: "https://cviofficial.medium.com/",
@@ -310,7 +313,8 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       name: "DEUS Finance",
       logo: "",
-      description: "DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.",
+      description:
+        "DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.",
       links: {
         twitter: "@DeusDao",
         github: "https://github.com/deusfinance",
@@ -993,7 +997,8 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       name: "Unslashed Finance",
       logo: "",
-      description: "Unslashed is a decentralized insurance protocol covering all common risks for crypto assets. Unslashed enables almost instant liquidity to insurance buyers and risk underwriters, ensures constant collateralization, and guarantees transparency through an unbiased claims process.",
+      description:
+        "Unslashed is a decentralized insurance protocol covering all common risks for crypto assets. Unslashed enables almost instant liquidity to insurance buyers and risk underwriters, ensures constant collateralization, and guarantees transparency through an unbiased claims process.",
       links: {
         twitter: "@UnslashedF",
         medium: "https://medium.com/unslashed",

@@ -1,6 +1,6 @@
 import axios from "axios";
-import {PROTOCOL_NAMES} from "../protocols";
-import {CHAIN_ID, CHAINS} from "../chains";
+import {PROTOCOL_NAMES} from "../protocols/protocols";
+import {CHAIN_ID, CHAINS} from "../chains/chains";
 import {SUPPORTED_LP_TYPES} from "../lp-pairs";
 
 export interface Token {
@@ -21,18 +21,18 @@ export interface LpToken extends Token {
   baseTokenPosition: 0 | 1;
 }
 
-export function getToken(address: string): Token | null {
+export const getToken = function (address: string): Token | null {
   return TOKENS.get(address) || null;
-}
+};
 
-export function getTokensForProtocol(protocol: PROTOCOL_NAMES, includeTestnet = false): Token[] {
+export const getTokensForProtocol = function (protocol: PROTOCOL_NAMES, includeTestnet = false): Token[] {
   if (includeTestnet) {
     return Array.from(TOKENS.values()).filter((token: Token) => token.protocol === protocol);
   }
   return Array.from(TOKENS.values()).filter(
     (token: Token) => token.protocol === protocol && !CHAINS.get(token.chainId)?.isTestnet
   );
-}
+};
 
 const TOKENS = new Map<string, Token | LpToken>([
   [
