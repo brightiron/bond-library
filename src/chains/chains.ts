@@ -88,6 +88,7 @@ export const CHAINS = new Map<CHAIN_ID, Chain>([
       imageAltText: "Ethereum Logo",
     },
   ],
+  /*
   [
     CHAIN_ID.OPTIMISM_MAINNET,
     {
@@ -284,5 +285,12 @@ export const CHAINS = new Map<CHAIN_ID, Chain>([
       image: "",
       imageAltText: "Avalanche Logo",
     },
-  ],
+  ],*/
 ]);
+
+export const SUPPORTED_CHAINS: Chain[] = [
+  // @ts-ignore
+  CHAINS.get(CHAIN_ID.RINKEBY_TESTNET),
+  // @ts-ignore
+  CHAINS.get(CHAIN_ID.GOERLI_TESTNET),
+];
