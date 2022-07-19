@@ -3,6 +3,20 @@ import {PROTOCOL_NAMES} from "../protocols/protocols";
 import {CHAIN_ID, CHAINS} from "../chains/chains";
 import {SUPPORTED_LP_TYPES} from "../lp-pairs";
 
+export interface PriceSource {
+  source: "coingecko" | "nomics" | "custom";
+}
+
+export interface SupportedPriceSource extends PriceSource {
+  source: "coingecko" | "nomics";
+  apiId: string;
+}
+
+export interface CustomPriceSource extends PriceSource {
+  source: "custom";
+  customPriceFunction: () => Promise<string>;
+}
+
 export interface Token {
   name: string;
   symbol: string;
@@ -12,6 +26,7 @@ export interface Token {
   coingeckoId?: string;
   protocol?: PROTOCOL_NAMES;
   customPriceFunction?: () => Promise<string>;
+  priceSources: Map<number, SupportedPriceSource | CustomPriceSource>;
 }
 
 export interface LpToken extends Token {
@@ -37,15 +52,18 @@ export const getTokensForProtocol = function (protocol: PROTOCOL_NAMES, includeT
   );
 };
 
-export const getUniqueApiIds = function (): { coingecko: Set<any>, nomics: Set<any>} {
-  const coingecko: Set<any> = new Set();
-  const nomics: Set<any> = new Set();
+export const getUniqueApiIds = function (): {
+  coingecko: Set<string>,
+  nomics: Set<string>,
+} {
+  const coingecko: Set<string> = new Set();
+  const nomics: Set<string> = new Set();
 
-  for (const value of TOKENS.values()) {
-    // @ts-ignore
-    value.coingeckoId && coingecko.add(value.coingeckoId);
-    // @ts-ignore
-    value.nomicsId && nomics.add(value.nomicsId);
+  for (const token of TOKENS.values()) {
+    for (const priceSource of token.priceSources.values()) {
+      priceSource.source === "coingecko" && coingecko.add(priceSource.apiId);
+      priceSource.source === "nomics" && nomics.add(priceSource.apiId);
+    }
   }
 
   return {
@@ -76,6 +94,10 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.RINKEBY_TESTNET,
       coingeckoId: "ethereum",
       nomicsId: "ETH",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {source: "coingecko", apiId: "ethereum"}],
+        [1, {source: "nomics", apiId: "ETH"}],
+      ]),
     },
   ],
   [
@@ -89,6 +111,10 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       coingeckoId: "governance-ohm",
       nomicsId: "GOHM",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {source: "nomics", apiId: "GOHM"}],
+        [1, {source: "coingecko", apiId: "governance-ohm"}],
+      ]),
     },
   ],
   [
@@ -102,6 +128,10 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       coingeckoId: "olympus",
       nomicsId: "OHM2",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {source: "coingecko", apiId: "olympus"}],
+        [1, {source: "nomics", apiId: "OHM2"}],
+      ]),
     },
   ],
   [
@@ -116,15 +146,31 @@ export const TOKENS = new Map<string, Token>([
       protocol: PROTOCOL_NAMES.ALCHEMIX,
       coingeckoId: "alchemix",
       nomicsId: "ALCX",
-      customPriceFunction: async (key: string) => {
+      customPriceFunction: async () => {
         let resp;
         try {
           resp = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=alchemix&vs_currencies=usd");
-          return  resp.data["alchemix"].usd;
+          return resp.data["alchemix"].usd;
         } catch (e) {
           // console.log("coingecko api error: ", e);
         }
       },
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "custom",
+          customPriceFunction: async () => {
+            let resp;
+            try {
+              resp = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=alchemix&vs_currencies=usd");
+              return resp.data["alchemix"].usd;
+            } catch (e) {
+              // console.log("coingecko api error: ", e);
+            }
+          }
+        }],
+        [1, {source: "coingecko", apiId: "alchemix"}],
+        [2, {source: "nomics", apiId: "ALCX"}],
+      ]),
     },
   ],
   [
@@ -140,6 +186,7 @@ export const TOKENS = new Map<string, Token>([
       token0Address: "rinkeby_0x034618c94c99232Dc7463563D5285cDB6eDc73e0",
       token1Address: "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14",
       baseTokenPosition: 1,
+      priceSources: new Map(),
     },
   ],
   [
@@ -153,15 +200,31 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       coingeckoId: "dai",
       nomicsId: "DAI",
-      customPriceFunction: async (key: string) => {
+      customPriceFunction: async () => {
         let resp;
         try {
           resp = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=dai&vs_currencies=usd");
-          return  resp.data["dai"].usd;
+          return resp.data["dai"].usd;
         } catch (e) {
           // console.log("coingecko api error: ", e);
         }
       },
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {source: "coingecko", apiId: "dai"}],
+        [1, {source: "nomics", apiId: "DAI"}],
+        [2, {
+          source: "custom",
+          customPriceFunction: async () => {
+            let resp;
+            try {
+              resp = await axios.get("https://api.coingecko.com/api/v3/simple/price?ids=dai&vs_currencies=usd");
+              return resp.data["dai"].usd;
+            } catch (e) {
+              // console.log("coingecko api error: ", e);
+            }
+          }
+        }],
+      ]),
     },
   ],
   [
@@ -175,6 +238,10 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       coingeckoId: "frax",
       nomicsId: "FRAX",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {source: "coingecko", apiId: "frax"}],
+        [1, {source: "nomics", apiId: "FRAX"}],
+      ]),
     },
   ],
 ].reduce(mapReducer, []));
