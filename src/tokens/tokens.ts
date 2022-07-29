@@ -105,8 +105,8 @@ export const TOKENS = new Map<string, Token>([
       symbol: "GOHM",
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, {source: "nomics", apiId: "GOHM"}],
-        [1, {source: "coingecko", apiId: "governance-ohm"}],
+        [1, {source: "nomics", apiId: "GOHM"}],
+        [0, {source: "coingecko", apiId: "governance-ohm"}],
       ]),
     },
   ],
@@ -136,7 +136,7 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.ETHEREUM_MAINNET,
       protocol: PROTOCOL_NAMES.ALCHEMIX,
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, {
+        [1, {
           source: "custom",
           customPriceFunction: async () => {
             let resp;
@@ -148,7 +148,7 @@ export const TOKENS = new Map<string, Token>([
             }
           }
         }],
-        [1, {source: "coingecko", apiId: "alchemix"}],
+        [0, {source: "coingecko", apiId: "alchemix"}],
         [2, {source: "nomics", apiId: "ALCX"}],
       ]),
     },

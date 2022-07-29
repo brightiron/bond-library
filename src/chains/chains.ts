@@ -33,61 +33,61 @@ export enum CHAIN_ID {
   AVALANCHE_FUJI_TESTNET = "43113",
 }
 
-export const CHAINS = new Map<CHAIN_ID, Chain>([
-  [
-    CHAIN_ID.ETHEREUM_MAINNET,
-    {
-      chainName: "Ethereum",
-      chainId: "1",
-      isTestnet: false,
-      nativeCurrency: {
-        name: "Ethereum",
-        symbol: "ETH",
-        decimals: 18,
-      },
-      rpcUrls: [""],
-      blockExplorerUrls: ["https://etherscan.io/#/"],
-      blockExplorerName: "Etherscan",
-      image: "",
-      imageAltText: "Ethereum Logo",
-    },
-  ],
-  [
-    CHAIN_ID.RINKEBY_TESTNET,
-    {
-      chainName: "Rinkeby Testnet",
-      chainId: "4",
-      isTestnet: true,
-      nativeCurrency: {
-        name: "Ethereum",
-        symbol: "ETH",
-        decimals: 18,
-      },
-      rpcUrls: [""],
-      blockExplorerUrls: ["https://rinkeby.etherscan.io/#/"],
-      blockExplorerName: "Etherscan",
-      image: "",
-      imageAltText: "Ethereum Logo",
-    },
-  ],
-  [
-    CHAIN_ID.GOERLI_TESTNET,
-    {
-      chainName: "Goerli Testnet",
-      chainId: "5",
-      isTestnet: true,
-      nativeCurrency: {
-        name: "Ethereum",
-        symbol: "ETH",
-        decimals: 18,
-      },
-      rpcUrls: [""],
-      blockExplorerUrls: ["https://goerli.etherscan.io/#/"],
-      blockExplorerName: "Etherscan",
-      image: "",
-      imageAltText: "Ethereum Logo",
-    },
-  ],
+const ethereumMainnet: Chain = {
+  chainName: "Ethereum",
+  chainId: "1",
+  isTestnet: false,
+  nativeCurrency: {
+    name: "Ethereum",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  rpcUrls: [""],
+  blockExplorerUrls: ["https://etherscan.io/#/"],
+  blockExplorerName: "Etherscan",
+  image: "",
+  imageAltText: "Ethereum Logo",
+};
+
+const rinkebyTestnet: Chain = {
+  chainName: "Rinkeby Testnet",
+  chainId: "4",
+  isTestnet: true,
+  nativeCurrency: {
+    name: "Ethereum",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  rpcUrls: [""],
+  blockExplorerUrls: ["https://rinkeby.etherscan.io/#/"],
+  blockExplorerName: "Etherscan",
+  image: "",
+  imageAltText: "Ethereum Logo",
+};
+
+const goerliTestnet = {
+  chainName: "Goerli Testnet",
+  chainId: "5",
+  isTestnet: true,
+  nativeCurrency: {
+    name: "Ethereum",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  rpcUrls: [""],
+  blockExplorerUrls: ["https://goerli.etherscan.io/#/"],
+  blockExplorerName: "Etherscan",
+  image: "",
+  imageAltText: "Ethereum Logo",
+};
+
+export const CHAINS = new Map<string, Chain>([
+  [CHAIN_ID.ETHEREUM_MAINNET, ethereumMainnet],
+  ["mainnet", ethereumMainnet],
+  [CHAIN_ID.RINKEBY_TESTNET, rinkebyTestnet],
+  ["rinkeby", rinkebyTestnet],
+  [CHAIN_ID.GOERLI_TESTNET, goerliTestnet],
+  ["goerli", goerliTestnet],
   /*
   [
     CHAIN_ID.OPTIMISM_MAINNET,

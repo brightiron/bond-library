@@ -61,6 +61,7 @@ export enum PROTOCOL_NAMES {
   LIQUIDDRIVER = "LIQUIDDRIVER",
   MSTABLE = "MSTABLE",
   MUTE_IO = "MUTE_IO",
+  OLYMPUS_DAO = "OLYMPUS_DAO",
   PANGOLIN = "PANGOLIN",
   PARAGONS_DAO = "PARAGONS_DAO",
   PARASWAP = "PARASWAP",
@@ -86,7 +87,7 @@ export enum PROTOCOL_NAMES {
   YIELD_YAK = "YIELD_YAK",
 }
 
-export const getProtocolByAddress = function (address: string, chain: CHAIN_ID): Protocol | null {
+export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
   const res = ADDRESSES.filter((obj: Address) => chain === obj.chainId && obj.address === address);
   return PROTOCOLS.get(res[0]?.protocol) || null;
 };
@@ -97,19 +98,24 @@ export const getAddressesByProtocol = function (protocol: PROTOCOL_NAMES): Addre
 
 const ADDRESSES = [
   {
-    chainId: "4",
-    address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
+    chainId: CHAIN_ID.RINKEBY_TESTNET,
+    address: "0x034618c94c99232dc7463563d5285cdb6edc73e0",
     protocol: PROTOCOL_NAMES.ALCHEMIX,
   },
   {
-    chainId: "4",
-    address: "0x0b0C4248d5518B77f9Fc8C6AaB0A61c3377C956B",
-    protocol: PROTOCOL_NAMES.ALCHEMIX,
+    chainId: CHAIN_ID.RINKEBY_TESTNET,
+    address: "0x2f7249cb599139e560f0c81c269ab9b04799e453",
+    protocol: PROTOCOL_NAMES.FRAX,
   },
   {
-    chainId: "4",
+    chainId: CHAIN_ID.RINKEBY_TESTNET,
     address: "0x1543102a2c97026CF92e79a503268c2F73186f75",
     protocol: PROTOCOL_NAMES.SHAPESHIFT,
+  },
+  {
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a",
+    protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
   },
 ];
 
@@ -691,6 +697,21 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
         staking: "https://mute.io/#staking",
         dataStudio:
           "https://datastudio.google.com/u/0/embed/reporting/b9f1f912-b6a0-4a09-b64f-3a8c4810f43a/page/oYFoC?params=%7B%22df16%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Mute-io%22%7D",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.OLYMPUS_DAO,
+    {
+      name: "OlympusDAO",
+      logo: "",
+      description:
+        "Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.",
+      links: {
+        twitter: "@OlympusDAO",
+        github: "https://github.com/OlympusDAO",
+        homepage: "https://olympusdao.finanace/",
+        staking: "https://app.olympusdao.finance/",
       },
     },
   ],
