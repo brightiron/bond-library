@@ -5,6 +5,7 @@ export interface NativeCurrency {
 }
 
 export interface Chain {
+  displayName: string;
   chainName: string;
   chainId: string;
   isTestnet: boolean;
@@ -34,7 +35,8 @@ export enum CHAIN_ID {
 }
 
 const ethereumMainnet: Chain = {
-  chainName: "Ethereum",
+  displayName: "Ethereum",
+  chainName: "mainnet",
   chainId: "1",
   isTestnet: false,
   nativeCurrency: {
@@ -50,7 +52,8 @@ const ethereumMainnet: Chain = {
 };
 
 const rinkebyTestnet: Chain = {
-  chainName: "Rinkeby Testnet",
+  displayName: "Rinkeby Testnet",
+  chainName: "rinkeby",
   chainId: "4",
   isTestnet: true,
   nativeCurrency: {
@@ -65,8 +68,9 @@ const rinkebyTestnet: Chain = {
   imageAltText: "Ethereum Logo",
 };
 
-const goerliTestnet = {
-  chainName: "Goerli Testnet",
+const goerliTestnet: Chain = {
+  displayName: "Goerli Testnet",
+  chainName: "goerli",
   chainId: "5",
   isTestnet: true,
   nativeCurrency: {
@@ -92,7 +96,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.OPTIMISM_MAINNET,
     {
-      chainName: "Optimism",
+      displayName: "Optimism",
       chainId: "10",
       isTestnet: false,
       nativeCurrency: {
@@ -110,7 +114,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.BSC_MAINNET,
     {
-      chainName: "Binance Smart Chain",
+      displayName: "Binance Smart Chain",
       chainId: "56",
       isTestnet: false,
       nativeCurrency: {
@@ -128,7 +132,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.POLYGON_MAINNET,
     {
-      chainName: "Polygon",
+      displayName: "Polygon",
       chainId: "137",
       isTestnet: false,
       nativeCurrency: {
@@ -146,7 +150,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.POLYGON_MUMBAI_TESTNET,
     {
-      chainName: "Polygon Mumbai Testnet",
+      displayName: "Polygon Mumbai Testnet",
       chainId: "80001",
       isTestnet: true,
       nativeCurrency: {
@@ -164,7 +168,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.ANDROMEDA_MAINNET,
     {
-      chainName: "Andromeda",
+      displayName: "Andromeda",
       chainId: "1088",
       isTestnet: false,
       nativeCurrency: {
@@ -182,7 +186,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.FANTOM_MAINNET,
     {
-      chainName: "Fantom",
+      displayName: "Fantom",
       chainId: "250",
       isTestnet: false,
       nativeCurrency: {
@@ -200,7 +204,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.FANTOM_TESTNET,
     {
-      chainName: "Fantom Testnet",
+      displayName: "Fantom Testnet",
       chainId: "0xfa2",
       isTestnet: true,
       nativeCurrency: {
@@ -218,7 +222,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.ARBITRUM_MAINNET,
     {
-      chainName: "Arbitrum",
+      displayName: "Arbitrum",
       chainId: "42161",
       isTestnet: false,
       nativeCurrency: {
@@ -236,7 +240,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.ARBITRUM_TESTNET,
     {
-      chainName: "Arbitrum Testnet",
+      displayName: "Arbitrum Testnet",
       chainId: "421611",
       isTestnet: true,
       nativeCurrency: {
@@ -254,7 +258,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.AVALANCHE_MAINNET,
     {
-      chainName: "Avalanche",
+      displayName: "Avalanche",
       chainId: "43114",
       isTestnet: false,
       nativeCurrency: {
@@ -272,7 +276,7 @@ export const CHAINS = new Map<string, Chain>([
   [
     CHAIN_ID.AVALANCHE_FUJI_TESTNET,
     {
-      chainName: "Avalanche Fuji Testnet",
+      displayName: "Avalanche Fuji Testnet",
       chainId: "43113",
       isTestnet: true,
       nativeCurrency: {
