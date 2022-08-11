@@ -18,9 +18,9 @@ export interface Chain {
 }
 
 export enum CHAIN_ID {
-  ETHEREUM_MAINNET = "1",
-  RINKEBY_TESTNET = "4",
-  GOERLI_TESTNET = "5",
+  ETHEREUM_MAINNET = "mainnet",
+  RINKEBY_TESTNET = "rinkeby",
+  GOERLI_TESTNET = "goerli",
   OPTIMISM_MAINNET = "10",
   BSC_MAINNET = "56",
   POLYGON_MAINNET = "137",
