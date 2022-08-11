@@ -1,6 +1,6 @@
 import {CHAIN_ID} from "../chains/chains";
 
-interface Links {
+export interface Links {
   twitter?: string;
   discord?: string;
   github?: string;
@@ -17,7 +17,8 @@ interface Address {
   protocol: PROTOCOL_NAMES;
 }
 
-interface Protocol {
+export interface Protocol {
+  id: string;
   name: string;
   logo: string;
   description: string;
@@ -88,7 +89,10 @@ export enum PROTOCOL_NAMES {
 }
 
 export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
-  const res = ADDRESSES.filter((obj: Address) => chain === obj.chainId && obj.address === address);
+  address = address.toLowerCase();
+  const res = ADDRESSES.filter((obj: Address) => {
+    return chain === obj.chainId && obj.address.toLowerCase() === address
+  });
   return PROTOCOLS.get(res[0]?.protocol) || null;
 };
 
@@ -96,7 +100,20 @@ export const getAddressesByProtocol = function (protocol: PROTOCOL_NAMES): Addre
   return ADDRESSES.filter((obj: Address) => obj.protocol === protocol);
 };
 
+export const getAddressesByChain = function (chainId: CHAIN_ID): String[] {
+  const addresses: String[] = [];
+  ADDRESSES.forEach(address => {
+    if (address.chainId === chainId) addresses.push(address.address.toLowerCase());
+  });
+  return addresses;
+}
+
 const ADDRESSES = [
+  {
+    chainId: CHAIN_ID.RINKEBY_TESTNET,
+    address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
+    protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
+  },
   {
     chainId: CHAIN_ID.RINKEBY_TESTNET,
     address: "0x034618c94c99232dc7463563d5285cdb6edc73e0",
@@ -108,13 +125,8 @@ const ADDRESSES = [
     protocol: PROTOCOL_NAMES.FRAX,
   },
   {
-    chainId: CHAIN_ID.RINKEBY_TESTNET,
-    address: "0x1543102a2c97026CF92e79a503268c2F73186f75",
-    protocol: PROTOCOL_NAMES.SHAPESHIFT,
-  },
-  {
     chainId: CHAIN_ID.GOERLI_TESTNET,
-    address: "0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a",
+    address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
     protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
   },
 ];
@@ -123,6 +135,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.OX_DAO,
     {
+      id: PROTOCOL_NAMES.OX_DAO,
       name: "0xDAO",
       logo: "",
       description: "WE'RE NOT TELLING YOU TO INVEST IN US. YOU ARE - XOXO",
@@ -137,6 +150,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.ABRACADABRA,
     {
+      id: PROTOCOL_NAMES.ABRACADABRA,
       name: "Abracadabra",
       logo: "",
       description:
@@ -153,6 +167,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.ALCHEMIX,
     {
+      id: PROTOCOL_NAMES.ALCHEMIX,
       name: "Alchemix",
       description:
         "Alchemix lets you reimagine the potential of DeFi by providing highly flexible instant loans that repay themselves overtime.",
@@ -171,6 +186,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.ANGLE_PROTOCOL,
     {
+      id: PROTOCOL_NAMES.ANGLE_PROTOCOL,
       name: "Angle Protocol",
       logo: "",
       description: "Angle is the first decentralized, capital efficient and over-collateralized stablecoin protocol",
@@ -186,6 +202,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BANKLESS_DAO,
     {
+      id: PROTOCOL_NAMES.BANKLESS_DAO,
       name: "Bankless DAO",
       logo: "",
       description:
@@ -203,6 +220,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BARNBRIDGE,
     {
+      id: PROTOCOL_NAMES.BARNBRIDGE,
       name: "BarnBridge",
       logo: "",
       description:
@@ -219,6 +237,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BEETHOVEN_X,
     {
+      id: PROTOCOL_NAMES.BEETHOVEN_X,
       name: "Beethoven X",
       logo: "",
       description:
@@ -235,6 +254,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BENQI_FINANCE,
     {
+      id: PROTOCOL_NAMES.BENQI_FINANCE,
       name: "BENQI Finance",
       logo: "",
       description:
@@ -251,6 +271,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BLACKPOOL,
     {
+      id: PROTOCOL_NAMES.BLACKPOOL,
       name: "BlackPool",
       logo: "",
       description:
@@ -267,6 +288,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.BOTTO,
     {
+      id: PROTOCOL_NAMES.BOTTO,
       name: "Botto",
       logo: "",
       description: "Botto is a decentralized artist that generates art based on community feedback.",
@@ -284,6 +306,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.CRYPTO_RAIDERS,
     {
+      id: PROTOCOL_NAMES.CRYPTO_RAIDERS,
       name: "Crypto Raiders",
       logo: "",
       description:
@@ -299,6 +322,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.CRYPTO_VOLATILITY_INDEX,
     {
+      id: PROTOCOL_NAMES.CRYPTO_VOLATILITY_INDEX,
       name: "Crypto Volatility Index",
       logo: "",
       description:
@@ -317,6 +341,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.DEUS_FINANCE,
     {
+      id: PROTOCOL_NAMES.DEUS_FINANCE,
       name: "DEUS Finance",
       logo: "",
       description:
@@ -333,6 +358,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.DEX_FINANCE,
     {
+      id: PROTOCOL_NAMES.DEX_FINANCE,
       name: "DEX Finance",
       logo: "",
       description:
@@ -350,6 +376,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.DIVINE_DAO,
     {
+      id: PROTOCOL_NAMES.DIVINE_DAO,
       name: "Divine DAO",
       logo: "",
       description:
@@ -364,6 +391,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.EVERIPEDIA,
     {
+      id: PROTOCOL_NAMES.EVERIPEDIA,
       name: "Everipedia",
       logo: "",
       description:
@@ -382,6 +410,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.FIAT_DAO,
     {
+      id: PROTOCOL_NAMES.FIAT_DAO,
       name: "FIAT DAO",
       logo: "",
       description:
@@ -398,6 +427,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.FLOAT,
     {
+      id: PROTOCOL_NAMES.FLOAT,
       name: "Float",
       logo: "",
       description: "Floating, low-volatility currency for web3, by a team of anonymous researchers.",
@@ -415,6 +445,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.FRAX,
     {
+      id: PROTOCOL_NAMES.FRAX,
       name: "Frax",
       logo: "",
       description:
@@ -432,6 +463,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GAMMA_STRATEGIES,
     {
+      id: PROTOCOL_NAMES.GAMMA_STRATEGIES,
       name: "Gamma Strategies",
       logo: "",
       description:
@@ -448,6 +480,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GELATO_NETWORK,
     {
+      id: PROTOCOL_NAMES.GELATO_NETWORK,
       name: "Gelato Network",
       logo: "",
       description:
@@ -465,6 +498,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GET_PROTOCOL,
     {
+      id: PROTOCOL_NAMES.GET_PROTOCOL,
       name: "GET Protocol",
       logo: "",
       description:
@@ -480,6 +514,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GMX,
     {
+      id: PROTOCOL_NAMES.GMX,
       name: "GMX",
       logo: "",
       description:
@@ -496,6 +531,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GRO_PROTOCOL,
     {
+      id: PROTOCOL_NAMES.GRO_PROTOCOL,
       name: "Gro Protocol",
       logo: "",
       description: "Gro protocol is a stablecoin yield aggregator that tranches risk and yield.",
@@ -510,6 +546,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.GROWTH_DEFI,
     {
+      id: PROTOCOL_NAMES.GROWTH_DEFI,
       name: "Growth DeFi",
       logo: "",
       description:
@@ -526,6 +563,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.HUNDRED_FINANCE,
     {
+      id: PROTOCOL_NAMES.HUNDRED_FINANCE,
       name: "Hundred Finance",
       logo: "",
       description:
@@ -541,6 +579,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.ICHI,
     {
+      id: PROTOCOL_NAMES.ICHI,
       name: "ICHI",
       logo: "",
       description: "ICHI has supported the creation of branded dollars for leading cryptocurrency communities.",
@@ -556,6 +595,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.INSTRUMENTAL_FINANCE,
     {
+      id: PROTOCOL_NAMES.INSTRUMENTAL_FINANCE,
       name: "Instrumental Finance",
       logo: "",
       description:
@@ -573,6 +613,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.IRON_BANK,
     {
+      id: PROTOCOL_NAMES.IRON_BANK,
       name: "Iron Bank",
       logo: "",
       description: "Users can access Fantom Iron Bank markets on ib.xyz and earn IB token rewards.",
@@ -587,6 +628,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.INVERSE,
     {
+      id: PROTOCOL_NAMES.INVERSE,
       name: "Inverse",
       logo: "",
       description:
@@ -605,6 +647,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.JPEGD,
     {
+      id: PROTOCOL_NAMES.JPEGD,
       name: "JPEG'd",
       logo: "",
       description: "Bridging the gap between DeFi and NFTs.",
@@ -619,6 +662,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.KEEP3R_FIXED_FOREX,
     {
+      id: PROTOCOL_NAMES.KEEP3R_FIXED_FOREX,
       name: "Keep3r Fixed Forex",
       logo: "",
       description:
@@ -635,6 +679,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.KEEPER_DAO,
     {
+      id: PROTOCOL_NAMES.KEEPER_DAO,
       name: "KeeperDAO",
       logo: "",
       description:
@@ -652,6 +697,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.LIQUIDDRIVER,
     {
+      id: PROTOCOL_NAMES.LIQUIDDRIVER,
       name: "LiquidDriver",
       logo: "",
       description:
@@ -668,6 +714,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.MSTABLE,
     {
+      id: PROTOCOL_NAMES.MSTABLE,
       name: "mStable",
       logo: "",
       description:
@@ -686,6 +733,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.MUTE_IO,
     {
+      id: PROTOCOL_NAMES.MUTE_IO,
       name: "Mute.io",
       logo: "",
       description:
@@ -703,6 +751,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.OLYMPUS_DAO,
     {
+      id: PROTOCOL_NAMES.OLYMPUS_DAO,
       name: "OlympusDAO",
       logo: "",
       description:
@@ -718,6 +767,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.PANGOLIN,
     {
+      id: PROTOCOL_NAMES.PANGOLIN,
       name: "Pangolin",
       logo: "",
       description:
@@ -734,6 +784,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.PARAGONS_DAO,
     {
+      id: PROTOCOL_NAMES.PARAGONS_DAO,
       name: "ParagonsDAO",
       logo: "",
       description: "We’re an economic and social partner-DAO to promising blockchain-powered gaming ecosystems.",
@@ -747,6 +798,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.PARASWAP,
     {
+      id: PROTOCOL_NAMES.PARASWAP,
       name: "Paraswap",
       logo: "",
       description:
@@ -762,6 +814,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.PENDLE,
     {
+      id: PROTOCOL_NAMES.PENDLE,
       name: "Pendle",
       logo: "",
       description: "Pendle allows traders a more capital-efficient way to earn profits.",
@@ -777,6 +830,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.POOL_TOGETHER,
     {
+      id: PROTOCOL_NAMES.POOL_TOGETHER,
       name: "Pool Together",
       logo: "",
       description:
@@ -793,6 +847,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.PREMIA,
     {
+      id: PROTOCOL_NAMES.PREMIA,
       name: "Premia",
       logo: "",
       description:
@@ -809,6 +864,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SANDCLOCK,
     {
+      id: PROTOCOL_NAMES.SANDCLOCK,
       name: "Sandclock",
       logo: "",
       description:
@@ -824,6 +880,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SCREAM,
     {
+      id: PROTOCOL_NAMES.SCREAM,
       name: "Scream",
       logo: "",
       description:
@@ -840,6 +897,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SHAPESHIFT,
     {
+      id: PROTOCOL_NAMES.SHAPESHIFT,
       name: "ShapeShift",
       logo: "shapeshift.svg",
       description:
@@ -858,6 +916,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SIFCHAIN,
     {
+      id: PROTOCOL_NAMES.SIFCHAIN,
       name: "Sifchain",
       logo: "",
       description:
@@ -873,6 +932,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SPIRITSWAP,
     {
+      id: PROTOCOL_NAMES.SPIRITSWAP,
       name: "SpiritSwap",
       logo: "",
       description:
@@ -889,6 +949,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SPOOKYSWAP,
     {
+      id: PROTOCOL_NAMES.SPOOKYSWAP,
       name: "SpookySwap",
       logo: "",
       description: "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera",
@@ -904,6 +965,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.STAKE_DAO,
     {
+      id: PROTOCOL_NAMES.STAKE_DAO,
       name: "StakeDAO",
       logo: "",
       description:
@@ -920,6 +982,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.SYNAPSE,
     {
+      id: PROTOCOL_NAMES.SYNAPSE,
       name: "Synapse",
       logo: "",
       description: "Synapse is a cross-chain layer ∞ protocol powering interoperability between chains.",
@@ -936,6 +999,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.TAROT,
     {
+      id: PROTOCOL_NAMES.TAROT,
       name: "Tarot",
       logo: "",
       description:
@@ -951,6 +1015,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.THALES,
     {
+      id: PROTOCOL_NAMES.THALES,
       name: "Thales",
       logo: "",
       description:
@@ -967,6 +1032,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.THORSTARTER,
     {
+      id: PROTOCOL_NAMES.THORSTARTER,
       name: "Thorstarter",
       logo: "",
       description:
@@ -984,6 +1050,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.THORSWAP,
     {
+      id: PROTOCOL_NAMES.THORSWAP,
       name: "THORSwap",
       logo: "",
       description: "Swap Layer 1 assets, earn yield and bond nodes on the leading DEX powered by THORChain.",
@@ -1001,6 +1068,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.TREASURE_DAO,
     {
+      id: PROTOCOL_NAMES.TREASURE_DAO,
       name: "TreasureDAO",
       logo: "",
       description:
@@ -1016,6 +1084,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.UNSLASHED_FINANCE,
     {
+      id: PROTOCOL_NAMES.UNSLASHED_FINANCE,
       name: "Unslashed Finance",
       logo: "",
       description:
@@ -1030,6 +1099,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.VEDAO,
     {
+      id: PROTOCOL_NAMES.VEDAO,
       name: "veDAO",
       logo: "",
       description: "veDAO is sub-DAO for the Solidly ecosystem",
@@ -1044,6 +1114,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.WOO_DAO,
     {
+      id: PROTOCOL_NAMES.WOO_DAO,
       name: "WOO DAO",
       logo: "",
       description:
@@ -1060,6 +1131,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
   [
     PROTOCOL_NAMES.YIELD_YAK,
     {
+      id: PROTOCOL_NAMES.YIELD_YAK,
       name: "Yield Yak",
       logo: "",
       description:
