@@ -33,9 +33,9 @@ export interface LpToken extends Token {
   baseTokenPosition: 0 | 1;
 }
 
-export function getToken(address: string): Token | null {
+  export function getToken(address: string): Token | null {
   // @ts-ignore
-  return TOKENS.get(address) || null;
+  return TOKENS.get(address.toLowerCase()) || null;
 }
 
 export const getTokensForProtocol = function (protocol: PROTOCOL_NAMES, includeTestnet = false): Token[] {
@@ -163,8 +163,8 @@ export const TOKENS = new Map<string, Token>([
       chainId: CHAIN_ID.RINKEBY_TESTNET,
       protocol: PROTOCOL_NAMES.ALCHEMIX,
       lpType: SUPPORTED_LP_TYPES.SUSHISWAP,
-      token0Address: "rinkeby_0x034618c94c99232Dc7463563D5285cDB6eDc73e0",
-      token1Address: "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14",
+      token0Address: "rinkeby_0x034618c94c99232Dc7463563D5285cDB6eDc73e0".toLowerCase(),
+      token1Address: "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14".toLowerCase(),
       baseTokenPosition: 1,
       priceSources: new Map(),
     },
