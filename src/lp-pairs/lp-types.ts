@@ -49,7 +49,7 @@ const lpTypeDodo: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => DodoLp__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
     const contract = DodoLp__factory.connect(address, providerOrSigner)
-    return contract.getVaultReserve().then(result => {
+    return contract.getVaultReserve().then((result: { baseReserve: any; quoteReserve: any; }) => {
       return {
         token0: result.baseReserve,
         token1: result.quoteReserve
@@ -62,7 +62,7 @@ const lpTypeGUni: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => GUniPool__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
     const contract = GUniPool__factory.connect(address, providerOrSigner)
-    return contract.getUnderlyingBalances().then(result => {
+    return contract.getUnderlyingBalances().then((result: { amount0Current: any; amount1Current: any; }) => {
       return {
         token0: result.amount0Current,
         token1: result.amount1Current
@@ -75,7 +75,7 @@ const lpTypeHypervisor: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => Hypervisor__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
     const contract = Hypervisor__factory.connect(address, providerOrSigner)
-    return contract.getTotalAmounts().then(result => {
+    return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
         token1: result.total1
@@ -88,7 +88,7 @@ const lpTypeIchi: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => ICHIVault__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
     const contract = ICHIVault__factory.connect(address, providerOrSigner)
-    return contract.getTotalAmounts().then(result => {
+    return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
         token1: result.total1
@@ -101,7 +101,7 @@ const lpTypeVFloat: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => VFloat__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
     const contract = VFloat__factory.connect(address, providerOrSigner)
-    return contract.getTotalAmounts().then(result => {
+    return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
         token1: result.total1
