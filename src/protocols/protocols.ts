@@ -26,8 +26,10 @@ export interface Protocol {
 }
 
 export enum PROTOCOL_NAMES {
+  APHEX_PROTOCOL = "AphexProtocol",
   BOND_PROTOCOL = "BondProtocol",
   OLYMPUS_DAO = "OlympusDAO",
+  TEX_PROTOCOL = "TexProtocol",
 }
 
 export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
@@ -64,16 +66,30 @@ const ADDRESSES = [
   {
     chainId: CHAIN_ID.RINKEBY_TESTNET,
     address: "0x62A665d3f9fc9a968dC35a789122981d9109349a",
-    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
+    protocol: PROTOCOL_NAMES.APHEX_PROTOCOL,
   },
   {
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0x62A665d3f9fc9a968dC35a789122981d9109349a",
-    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
+    protocol: PROTOCOL_NAMES.APHEX_PROTOCOL,
   },
 ];
 
 export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
+  [
+    PROTOCOL_NAMES.APHEX_PROTOCOL,
+    {
+      id: PROTOCOL_NAMES.APHEX_PROTOCOL,
+      name: "AphexProtocol",
+      description: "We help aphex own his liquidity",
+      links: {
+        twitter: "@bond_protocol",
+        github: "https://github.com/bond-labs",
+        medium: "https://medium.com/@Bond_Protocol",
+        homepage: "https://bondprotocol.finance/",
+      },
+    },
+  ],
   [
     PROTOCOL_NAMES.BOND_PROTOCOL,
     {
@@ -100,6 +116,20 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
         github: "https://github.com/OlympusDAO",
         homepage: "https://olympusdao.finanace/",
         staking: "https://app.olympusdao.finance/",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.TEX_PROTOCOL,
+    {
+      id: PROTOCOL_NAMES.TEX_PROTOCOL,
+      name: "TexProtocol",
+      description: "We help tex own his liquidity",
+      links: {
+        twitter: "@bond_protocol",
+        github: "https://github.com/bond-labs",
+        medium: "https://medium.com/@Bond_Protocol",
+        homepage: "https://bondprotocol.finance/",
       },
     },
   ],
