@@ -61,6 +61,16 @@ const ADDRESSES = [
     address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
     protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
   },
+  {
+    chainId: CHAIN_ID.RINKEBY_TESTNET,
+    address: "0x62A665d3f9fc9a968dC35a789122981d9109349a",
+    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
+  },
+  {
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0x62A665d3f9fc9a968dC35a789122981d9109349a",
+    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
+  },
 ];
 
 export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
