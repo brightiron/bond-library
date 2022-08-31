@@ -32,5 +32,18 @@
   "dependencies": {
     "axios": "^0.27.2",
     "ethers": "^5.6.8"
-  }
+  },
+  "types": "./dist/index.d.ts",
+  "description": "Library containing off-chain metadata for BondProtocol markets, partners, tokens etc",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bond-Labs/bond-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bond-Labs/bond-library/issues"
+  },
+  "homepage": "https://github.com/Bond-Labs/bond-library#readme"
 }
