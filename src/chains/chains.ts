@@ -294,6 +294,8 @@ export const CHAINS = new Map<string, Chain>([
 
 export const SUPPORTED_CHAINS: Chain[] = [
   // @ts-ignore
+  CHAINS.get(CHAIN_ID.ETHEREUM_MAINNET),
+  // @ts-ignore
   CHAINS.get(CHAIN_ID.RINKEBY_TESTNET),
   // @ts-ignore
   CHAINS.get(CHAIN_ID.GOERLI_TESTNET),
