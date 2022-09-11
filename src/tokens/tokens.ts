@@ -168,5 +168,20 @@ export const TOKENS = new Map<string, Token>([
         }]
       ])
     }
+  ],
+  [
+    [
+      "goerli_0x326C977E6efc84E512bB9C30f76E30c160eD06FB".toLowerCase()
+    ],
+    {
+      name: "Mock Chainlink",
+      symbol: "LINK",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "coingecko",
+          apiId: "chainlink"
+        }]
+      ])
+    }
   ]
 ].reduce(mapReducer, []));
