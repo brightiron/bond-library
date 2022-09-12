@@ -183,5 +183,20 @@ export const TOKENS = new Map<string, Token>([
         }]
       ])
     }
+  ],
+  [
+    [
+      "goerli_0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C".toLowerCase()
+    ],
+    {
+      name: "Mock USDC",
+      symbol: "USDC",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "custom",
+          customPriceFunction: async () => "1.00"
+        }]
+      ])
+    }
   ]
 ].reduce(mapReducer, []));
