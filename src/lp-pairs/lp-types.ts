@@ -7,8 +7,8 @@ import {
   VFloat__factory,
   VolatileV1AMM__factory
 } from "./contracts";
-import {Provider} from "@ethersproject/providers";
-import {BigNumberish, Signer} from "ethers";
+import { Provider } from "@ethersproject/providers";
+import { BigNumberish, Signer } from "ethers";
 
 export interface LpReserves {
   token0: BigNumberish;
@@ -35,7 +35,7 @@ export enum SUPPORTED_LP_TYPES {
 const lpTypeSlp: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => SlpAbi__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = SlpAbi__factory.connect(address, providerOrSigner)
+    const contract = SlpAbi__factory.connect(address, providerOrSigner);
     return contract.getReserves().then((result: any) => {
       return {
         token0: result._reserve0,
@@ -43,12 +43,12 @@ const lpTypeSlp: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeDodo: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => DodoLp__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = DodoLp__factory.connect(address, providerOrSigner)
+    const contract = DodoLp__factory.connect(address, providerOrSigner);
     return contract.getVaultReserve().then((result: { baseReserve: any; quoteReserve: any; }) => {
       return {
         token0: result.baseReserve,
@@ -56,12 +56,12 @@ const lpTypeDodo: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeGUni: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => GUniPool__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = GUniPool__factory.connect(address, providerOrSigner)
+    const contract = GUniPool__factory.connect(address, providerOrSigner);
     return contract.getUnderlyingBalances().then((result: { amount0Current: any; amount1Current: any; }) => {
       return {
         token0: result.amount0Current,
@@ -69,12 +69,12 @@ const lpTypeGUni: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeHypervisor: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => Hypervisor__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = Hypervisor__factory.connect(address, providerOrSigner)
+    const contract = Hypervisor__factory.connect(address, providerOrSigner);
     return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
@@ -82,12 +82,12 @@ const lpTypeHypervisor: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeIchi: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => ICHIVault__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = ICHIVault__factory.connect(address, providerOrSigner)
+    const contract = ICHIVault__factory.connect(address, providerOrSigner);
     return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
@@ -95,12 +95,12 @@ const lpTypeIchi: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeVFloat: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => VFloat__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = VFloat__factory.connect(address, providerOrSigner)
+    const contract = VFloat__factory.connect(address, providerOrSigner);
     return contract.getTotalAmounts().then((result: { total0: any; total1: any; }) => {
       return {
         token0: result.total0,
@@ -108,12 +108,12 @@ const lpTypeVFloat: LpType = {
       };
     });
   }
-}
+};
 
 const lpTypeVolatileV1Amm: LpType = {
   getContract: (address: string, providerOrSigner: Provider | Signer) => VolatileV1AMM__factory.connect(address, providerOrSigner),
   getReserves: (address: string, providerOrSigner: Provider | Signer) => {
-    const contract = VolatileV1AMM__factory.connect(address, providerOrSigner)
+    const contract = VolatileV1AMM__factory.connect(address, providerOrSigner);
     return contract.getReserves().then((result: any) => {
       return {
         token0: result._reserve0,
@@ -121,7 +121,7 @@ const lpTypeVolatileV1Amm: LpType = {
       };
     });
   }
-}
+};
 
 export const LP_TYPES = new Map<SUPPORTED_LP_TYPES, LpType>([
   [SUPPORTED_LP_TYPES.CAKE_LP, lpTypeSlp],
@@ -133,4 +133,4 @@ export const LP_TYPES = new Map<SUPPORTED_LP_TYPES, LpType>([
   [SUPPORTED_LP_TYPES.UNISWAP_V2, lpTypeSlp],
   [SUPPORTED_LP_TYPES.V_FLOAT, lpTypeVFloat],
   [SUPPORTED_LP_TYPES.VOLATILE_V1_AMM, lpTypeVolatileV1Amm],
-])
+]);

@@ -40,7 +40,7 @@ export function getToken(address: string): Token | null {
 export const getUniqueApiIds = function(): {
   coingecko: Set<string>,
   nomics: Set<string>,
-} {
+  } {
   const coingecko: Set<string> = new Set();
   const nomics: Set<string> = new Set();
 
@@ -60,8 +60,8 @@ export const getUniqueApiIds = function(): {
 const mapReducer = (arr: any, [keys, val]: any) => [
   ...arr,
   ...(Array.isArray(keys)
-      ? [...keys.map(key => [key, val])]
-      : [[keys, val]]
+    ? [...keys.map(key => [key, val])]
+    : [[keys, val]]
   )
 ];
 

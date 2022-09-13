@@ -36,7 +36,7 @@ export enum PROTOCOL_NAMES {
 export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
   address = address.toLowerCase();
   const res = ADDRESSES.filter((obj: Address) => {
-    return chain === obj.chainId && obj.address.toLowerCase() === address
+    return chain === obj.chainId && obj.address.toLowerCase() === address;
   });
   return PROTOCOLS.get(res[0]?.protocol) || null;
 };
@@ -45,13 +45,13 @@ export const getAddressesByProtocol = function (protocol: PROTOCOL_NAMES): Addre
   return ADDRESSES.filter((obj: Address) => obj.protocol === protocol);
 };
 
-export const getAddressesByChain = function (chainId: CHAIN_ID): String[] {
-  const addresses: String[] = [];
+export const getAddressesByChain = function (chainId: CHAIN_ID): string[] {
+  const addresses: string[] = [];
   ADDRESSES.forEach(address => {
     if (address.chainId === chainId) addresses.push(address.address.toLowerCase());
   });
   return addresses;
-}
+};
 
 const ADDRESSES = [
   {
