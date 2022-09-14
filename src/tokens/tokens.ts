@@ -198,5 +198,20 @@ export const TOKENS = new Map<string, Token>([
         }]
       ])
     }
+  ],
+  [
+    [
+      "goerli_0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60".toLowerCase()
+    ],
+    {
+      name: "Mock DAI",
+      symbol: "DAI",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "custom",
+          customPriceFunction: async () => "1.00"
+        }]
+      ])
+    }
   ]
 ].reduce(mapReducer, []));
