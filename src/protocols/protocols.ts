@@ -140,7 +140,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
     {
       id: PROTOCOL_NAMES.OIGHTY_PROTOCOL,
       name: "OightyProtocol",
-      description: "We help Oighty own his liquidity",
+      description: "We help oighty own his liquidity",
       links: {
         twitter: "@bond_protocol",
         github: "https://github.com/bond-labs",
