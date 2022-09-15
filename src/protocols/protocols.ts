@@ -29,6 +29,7 @@ export enum PROTOCOL_NAMES {
   APHEX_PROTOCOL = "AphexProtocol",
   BOND_PROTOCOL = "BondProtocol",
   DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
+  OIGHTY_PROTOCOL = "OightyProtocol",
   OLYMPUS_DAO = "OlympusDAO",
   TEX_PROTOCOL = "TexProtocol",
 }
@@ -84,6 +85,11 @@ const ADDRESSES = [
     address: "0x24Ef8c193E02c0d952eC56C0097dF33b7947b7F6",
     protocol: PROTOCOL_NAMES.DEVOLTAIRE_PROTOCOL,
   },
+  {
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0x19518E4D4E542f4b0Fc27366C23FaC7a0bA491Da",
+    protocol: PROTOCOL_NAMES.OIGHTY_PROTOCOL,
+  },
 ];
 
 export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
@@ -121,6 +127,20 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       id: PROTOCOL_NAMES.DEVOLTAIRE_PROTOCOL,
       name: "DevoltaireProtocol",
       description: "We help devoltaire own his liquidity",
+      links: {
+        twitter: "@bond_protocol",
+        github: "https://github.com/bond-labs",
+        medium: "https://medium.com/@Bond_Protocol",
+        homepage: "https://bondprotocol.finance/",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.OIGHTY_PROTOCOL,
+    {
+      id: PROTOCOL_NAMES.OIGHTY_PROTOCOL,
+      name: "OightyProtocol",
+      description: "We help Oighty own his liquidity",
       links: {
         twitter: "@bond_protocol",
         github: "https://github.com/bond-labs",
