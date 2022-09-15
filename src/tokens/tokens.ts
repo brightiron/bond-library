@@ -144,8 +144,8 @@ export const TOKENS = new Map<string, Token>([
       "goerli_0x41e38e70a36150d08a8c97aec194321b5eb545a5".toLowerCase()
     ],
     {
-      name: "Mock Token 2",
-      symbol: "MOCK2",
+      name: "Mock DAI (2)",
+      symbol: "DAI2",
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, {
           source: "custom",
