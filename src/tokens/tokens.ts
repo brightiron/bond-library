@@ -71,7 +71,8 @@ export const TOKENS = new Map<string, Token>([
     [
       "ethereum_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".toLowerCase(),
       "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14".toLowerCase(),
-      "goerli_0x8b7fb00abb67ba04ce894b9e2769fe24a8409a6a".toLowerCase()
+      "goerli_0x8b7fb00abb67ba04ce894b9e2769fe24a8409a6a".toLowerCase(),
+      "goerli_0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6".toLowerCase()
     ],
     {
       name: "Ethereum",
@@ -123,20 +124,6 @@ export const TOKENS = new Map<string, Token>([
           customPriceFunction: async () => "33.00"
         }]
       ])
-    }
-  ],
-  [
-    [
-      "rinkeby_0x47096F8f6166762b727e8985D92D31be37DD26Bd".toLowerCase()
-    ],
-    {
-      name: "MOCK1-ETH SLP",
-      symbol: "MOCK1-ETH SLP",
-      lpType: SUPPORTED_LP_TYPES.SUSHISWAP,
-      token0Address: "rinkeby_0x034618c94c99232Dc7463563D5285cDB6eDc73e0".toLowerCase(),
-      token1Address: "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14".toLowerCase(),
-      baseTokenPosition: 1,
-      priceSources: new Map()
     }
   ],
   [
@@ -213,5 +200,49 @@ export const TOKENS = new Map<string, Token>([
         }]
       ])
     }
-  ]
+  ],
+  [
+    [
+      "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase()
+    ],
+    {
+      name: "Mock USDT",
+      symbol: "USDT",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "custom",
+          customPriceFunction: async () => "1.00"
+        }]
+      ])
+    }
+  ],
+  [
+    [
+      "goerli_0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4".toLowerCase()
+    ],
+    {
+      name: "Mock COMP",
+      symbol: "COMP",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "coingecko",
+          apiId: "compound-governance-token"
+        }]
+      ])
+    }
+  ],
+  [
+    [
+      "goerli_0x77195bB23B8Dac9F05D16092C7290BB7d1F7F1d3".toLowerCase()
+    ],
+      {
+        name: "COMP-USDT LP",
+        symbol: "COMP-USDT LP",
+        lpType: SUPPORTED_LP_TYPES.SUSHISWAP,
+        token0Address: "goerli_0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4".toLowerCase(),
+        token1Address: "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase(),
+        baseTokenPosition: 1,
+        priceSources: new Map()
+      }
+    ],
 ].reduce(mapReducer, []));
