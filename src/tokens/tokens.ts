@@ -23,6 +23,7 @@ export interface Token {
   logoUrl?: string;
   protocol?: PROTOCOL_NAMES;
   priceSources: Map<number, SupportedPriceSource | CustomPriceSource>;
+  purchaseLinks: Map<CHAIN_ID, string>;
 }
 
 export interface LpToken extends Token {
@@ -70,7 +71,6 @@ export const TOKENS = new Map<string, Token>([
   [
     [
       "ethereum_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".toLowerCase(),
-      "rinkeby_0x458821d1eBcAFC3f185a359c1bf2d27f8421AC14".toLowerCase(),
       "goerli_0x8b7fb00abb67ba04ce894b9e2769fe24a8409a6a".toLowerCase(),
       "goerli_0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6".toLowerCase()
     ],
@@ -80,6 +80,10 @@ export const TOKENS = new Map<string, Token>([
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, { source: "coingecko", apiId: "ethereum" }],
         [1, { source: "nomics", apiId: "ETH" }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2&chainId=1"],
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6&chainId=5"]
       ])
     }
   ],
@@ -94,6 +98,10 @@ export const TOKENS = new Map<string, Token>([
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [1, { source: "nomics", apiId: "GOHM" }],
         [0, { source: "coingecko", apiId: "governance-ohm" }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x0ab87046fBb341D058F17CBC4c1133F25a20a52f&chainId=1"],
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a&chainId=5"]
       ])
     }
   ],
@@ -108,21 +116,10 @@ export const TOKENS = new Map<string, Token>([
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, { source: "coingecko", apiId: "olympus" }],
         [1, { source: "nomics", apiId: "OHM2" }]
-      ])
-    }
-  ],
-  [
-    [
-      "rinkeby_0x034618c94c99232dc7463563d5285cdb6edc73e0".toLowerCase()
-    ],
-    {
-      name: "Mock Token 1",
-      symbol: "MOCK1",
-      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, {
-          source: "custom",
-          customPriceFunction: async () => "33.00"
-        }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5&chainId=1"],
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x0595328847af962f951a4f8f8ee9a3bf261e4f6b&chainId=5"]
       ])
     }
   ],
@@ -138,21 +135,9 @@ export const TOKENS = new Map<string, Token>([
           source: "custom",
           customPriceFunction: async () => "1.00"
         }]
-      ])
-    }
-  ],
-  [
-    [
-      "rinkeby_0x2f7249cb599139e560f0c81c269ab9b04799e453".toLowerCase()
-    ],
-    {
-      name: "Mock Token 3",
-      symbol: "MOCK3",
-      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, {
-          source: "custom",
-          customPriceFunction: async () => "1.00"
-        }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x41e38e70a36150d08a8c97aec194321b5eb545a5&chainId=5"]
       ])
     }
   ],
@@ -168,6 +153,9 @@ export const TOKENS = new Map<string, Token>([
           source: "coingecko",
           apiId: "chainlink"
         }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x326C977E6efc84E512bB9C30f76E30c160eD06FB&chainId=5"]
       ])
     }
   ],
@@ -183,6 +171,9 @@ export const TOKENS = new Map<string, Token>([
           source: "custom",
           customPriceFunction: async () => "1.00"
         }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]
       ])
     }
   ],
@@ -191,13 +182,16 @@ export const TOKENS = new Map<string, Token>([
       "goerli_0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60".toLowerCase()
     ],
     {
-      name: "Mock DAI",
-      symbol: "DAI",
+      name: "Mock DAI 3",
+      symbol: "DAI3",
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, {
           source: "custom",
           customPriceFunction: async () => "1.00"
         }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]
       ])
     }
   ],
@@ -213,6 +207,9 @@ export const TOKENS = new Map<string, Token>([
           source: "custom",
           customPriceFunction: async () => "1.00"
         }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]
       ])
     }
   ],
@@ -228,6 +225,9 @@ export const TOKENS = new Map<string, Token>([
           source: "coingecko",
           apiId: "compound-governance-token"
         }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]
       ])
     }
   ],
@@ -242,7 +242,10 @@ export const TOKENS = new Map<string, Token>([
         token0Address: "goerli_0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4".toLowerCase(),
         token1Address: "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase(),
         baseTokenPosition: 1,
-        priceSources: new Map()
+        priceSources: new Map(),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [CHAIN_ID.GOERLI_TESTNET, "https://app.uniswap.org/#/add/v2/0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4/0x79C950C7446B234a6Ad53B908fBF342b01c4d446"]
+        ])
       }
     ],
 ].reduce(mapReducer, []));
