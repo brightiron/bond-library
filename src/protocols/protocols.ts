@@ -27,6 +27,7 @@ export interface Protocol {
 
 export enum PROTOCOL_NAMES {
   APHEX_PROTOCOL = "AphexProtocol",
+  BIGFISHJOE_PROTOCOL = "BigfishjoeProtocol",
   BOND_PROTOCOL = "BondProtocol",
   DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
   OIGHTY_PROTOCOL = "OightyProtocol",
@@ -56,19 +57,9 @@ export const getAddressesByChain = function (chainId: CHAIN_ID): string[] {
 
 const ADDRESSES = [
   {
-    chainId: CHAIN_ID.RINKEBY_TESTNET,
-    address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
-    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
-  },
-  {
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
     protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
-  },
-  {
-    chainId: CHAIN_ID.RINKEBY_TESTNET,
-    address: "0x62A665d3f9fc9a968dC35a789122981d9109349a",
-    protocol: PROTOCOL_NAMES.APHEX_PROTOCOL,
   },
   {
     chainId: CHAIN_ID.GOERLI_TESTNET,
@@ -76,9 +67,9 @@ const ADDRESSES = [
     protocol: PROTOCOL_NAMES.APHEX_PROTOCOL,
   },
   {
-    chainId: CHAIN_ID.RINKEBY_TESTNET,
-    address: "0x24Ef8c193E02c0d952eC56C0097dF33b7947b7F6",
-    protocol: PROTOCOL_NAMES.DEVOLTAIRE_PROTOCOL,
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0x72A0363bbd9dE17435A57d6a6F2f89102F1EBE8b",
+    protocol: PROTOCOL_NAMES.BIGFISHJOE_PROTOCOL,
   },
   {
     chainId: CHAIN_ID.GOERLI_TESTNET,
@@ -90,6 +81,11 @@ const ADDRESSES = [
     address: "0x19518E4D4E542f4b0Fc27366C23FaC7a0bA491Da",
     protocol: PROTOCOL_NAMES.OIGHTY_PROTOCOL,
   },
+  {
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0xE5e93C4CBA55e98cCAa2618AC0772CD6fEEB43C5",
+    protocol: PROTOCOL_NAMES.TEX_PROTOCOL,
+  },
 ];
 
 export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
@@ -99,6 +95,20 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       id: PROTOCOL_NAMES.APHEX_PROTOCOL,
       name: "AphexProtocol",
       description: "We help aphex own his liquidity",
+      links: {
+        twitter: "@bond_protocol",
+        github: "https://github.com/bond-labs",
+        medium: "https://medium.com/@Bond_Protocol",
+        homepage: "https://bondprotocol.finance/",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.BIGFISHJOE_PROTOCOL,
+    {
+      id: PROTOCOL_NAMES.BIGFISHJOE_PROTOCOL,
+      name: "BigfishjoeProtocol",
+      description: "We help bigfishjoe own his liquidity",
       links: {
         twitter: "@bond_protocol",
         github: "https://github.com/bond-labs",
