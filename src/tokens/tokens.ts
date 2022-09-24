@@ -197,6 +197,24 @@ export const TOKENS = new Map<string, Token>([
   ],
   [
     [
+      "goerli_0x2899a03ffdab5c90badc5920b4f53b0884eb13cc".toLowerCase()
+    ],
+    {
+      name: "Mock DAI 4",
+      symbol: "DAI4",
+      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+        [0, {
+          source: "custom",
+          customPriceFunction: async () => "1.00"
+        }]
+      ]),
+      purchaseLinks: new Map<CHAIN_ID, string>([
+        [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]
+      ])
+    }
+  ],
+  [
+    [
       "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase()
     ],
     {
