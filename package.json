@@ -1,5 +1,5 @@
 {
-  "name": "@bond-labs/bond-library",
+  "name": "@bond-protocol/bond-library",
   "version": "0.0.18",
   "author": "spaceturtleship <spaceturtleship@protonmail.com>",
   "license": "MIT",
@@ -40,10 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bond-Labs/bond-library.git"
+    "url": "git+https://github.com/Bond-Protocol/bond-library.git"
   },
   "bugs": {
-    "url": "https://github.com/Bond-Labs/bond-library/issues"
+    "url": "https://github.com/Bond-Protocol/bond-library/issues"
   },
-  "homepage": "https://github.com/Bond-Labs/bond-library#readme"
+  "homepage": "https://github.com/Bond-Protocol/bond-library#readme"
 }

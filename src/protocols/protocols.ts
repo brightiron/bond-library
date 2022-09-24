@@ -102,7 +102,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help aphex own his liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
@@ -116,7 +116,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help bigfishjoe own his liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
@@ -130,7 +130,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help protocols own their liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
@@ -144,7 +144,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help devoltaire own his liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
@@ -158,7 +158,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help oighty own his liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
@@ -187,7 +187,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description: "We help tex own his liquidity",
       links: {
         twitter: "@bond_protocol",
-        github: "https://github.com/bond-labs",
+        github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
       },
