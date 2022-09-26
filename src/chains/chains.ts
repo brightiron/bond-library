@@ -19,7 +19,6 @@ export interface Chain {
 
 export enum CHAIN_ID {
   ETHEREUM_MAINNET = "mainnet",
-  RINKEBY_TESTNET = "rinkeby",
   GOERLI_TESTNET = "goerli",
   OPTIMISM_MAINNET = "10",
   BSC_MAINNET = "56",
@@ -51,23 +50,6 @@ const ethereumMainnet: Chain = {
   imageAltText: "Ethereum Logo",
 };
 
-const rinkebyTestnet: Chain = {
-  displayName: "Rinkeby Testnet",
-  chainName: "rinkeby",
-  chainId: "4",
-  isTestnet: true,
-  nativeCurrency: {
-    name: "Ethereum",
-    symbol: "ETH",
-    decimals: 18,
-  },
-  rpcUrls: [""],
-  blockExplorerUrls: ["https://rinkeby.etherscan.io/#/"],
-  blockExplorerName: "Etherscan",
-  image: "",
-  imageAltText: "Ethereum Logo",
-};
-
 const goerliTestnet: Chain = {
   displayName: "Goerli Testnet",
   chainName: "goerli",
@@ -88,8 +70,6 @@ const goerliTestnet: Chain = {
 export const CHAINS = new Map<string, Chain>([
   [CHAIN_ID.ETHEREUM_MAINNET, ethereumMainnet],
   ["mainnet", ethereumMainnet],
-  [CHAIN_ID.RINKEBY_TESTNET, rinkebyTestnet],
-  ["rinkeby", rinkebyTestnet],
   [CHAIN_ID.GOERLI_TESTNET, goerliTestnet],
   ["goerli", goerliTestnet],
   /*
