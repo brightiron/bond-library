@@ -70,6 +70,7 @@ const mapReducer = (arr: any, [keys, val]: any) => [
 export const TOKENS = new Map<string, Token>([
   [
     [
+      "eth",
       "ethereum_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".toLowerCase(),
       "goerli_0x8b7fb00abb67ba04ce894b9e2769fe24a8409a6a".toLowerCase(),
       "goerli_0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6".toLowerCase()
