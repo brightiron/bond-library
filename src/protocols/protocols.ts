@@ -57,6 +57,11 @@ export const getAddressesByChain = function (chainId: CHAIN_ID): string[] {
 
 const ADDRESSES = [
   {
+    chainId: CHAIN_ID.ETHEREUM_MAINNET,
+    address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
+    protocol: PROTOCOL_NAMES.BOND_PROTOCOL,
+  },
+  {
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA",
     protocol: PROTOCOL_NAMES.BOND_PROTOCOL,

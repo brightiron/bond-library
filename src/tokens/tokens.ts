@@ -71,7 +71,7 @@ export const TOKENS = new Map<string, Token>([
   [
     [
       "eth",
-      "ethereum_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".toLowerCase(),
+      "mainnet_0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".toLowerCase(),
       "goerli_0x8b7fb00abb67ba04ce894b9e2769fe24a8409a6a".toLowerCase(),
       "goerli_0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6".toLowerCase()
     ],
@@ -90,7 +90,7 @@ export const TOKENS = new Map<string, Token>([
   ],
   [
     [
-      "ethereum_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase(),
+      "mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase(),
       "goerli_0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a".toLowerCase()
     ],
     {
@@ -108,7 +108,7 @@ export const TOKENS = new Map<string, Token>([
   ],
   [
     [
-      "ethereum_0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5".toLowerCase(),
+      "mainnet_0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5".toLowerCase(),
       "goerli_0x0595328847af962f951a4f8f8ee9a3bf261e4f6b".toLowerCase()
     ],
     {
