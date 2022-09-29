@@ -1,4 +1,3 @@
-import { PROTOCOL_NAMES } from "../protocols/protocols";
 import { CHAIN_ID } from "../chains/chains";
 import { SUPPORTED_LP_TYPES } from "../lp-pairs";
 
@@ -77,40 +76,6 @@ export const TOKENS = new Map<string, Token>([
       purchaseLinks: new Map<CHAIN_ID, string>([
         [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2&chainId=1"],
         [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6&chainId=5"]
-      ])
-    }
-  ],
-  [
-    [
-      "mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase(),
-      "goerli_0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a".toLowerCase()
-    ],
-    {
-      name: "Governance OHM",
-      symbol: "GOHM",
-      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, { source: "coingecko", apiId: "governance-ohm" }]
-      ]),
-      purchaseLinks: new Map<CHAIN_ID, string>([
-        [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x0ab87046fBb341D058F17CBC4c1133F25a20a52f&chainId=1"],
-        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xbd5cd2dc63626780b496f55a8e99bfa42b2b891a&chainId=5"]
-      ])
-    }
-  ],
-  [
-    [
-      "mainnet_0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5".toLowerCase(),
-      "goerli_0x0595328847af962f951a4f8f8ee9a3bf261e4f6b".toLowerCase()
-    ],
-    {
-      name: "Olympus",
-      symbol: "OHM",
-      priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [0, { source: "coingecko", apiId: "olympus" }],
-      ]),
-      purchaseLinks: new Map<CHAIN_ID, string>([
-        [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5&chainId=1"],
-        [CHAIN_ID.GOERLI_TESTNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x0595328847af962f951a4f8f8ee9a3bf261e4f6b&chainId=5"]
       ])
     }
   ],

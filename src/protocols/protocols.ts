@@ -32,7 +32,6 @@ export enum PROTOCOL_NAMES {
   BOND_PROTOCOL = "BondProtocol",
   DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
   OIGHTY_PROTOCOL = "OightyProtocol",
-  OLYMPUS_DAO = "OlympusDAO",
   TEX_PROTOCOL = "TexProtocol",
 }
 
@@ -172,22 +171,6 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
-      },
-    },
-  ],
-  [
-    PROTOCOL_NAMES.OLYMPUS_DAO,
-    {
-      id: PROTOCOL_NAMES.OLYMPUS_DAO,
-      name: "OlympusDAO",
-      description:
-        "Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.",
-      links: {
-        governanceVote: "",
-        twitter: "@OlympusDAO",
-        github: "https://github.com/OlympusDAO",
-        homepage: "https://olympusdao.finanace/",
-        staking: "https://app.olympusdao.finance/",
       },
     },
   ],
