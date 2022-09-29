@@ -16,17 +16,14 @@ display your market details.
 
 Protocol details should be added to `src/protocols/protocols.ts`.
 
-First, add an entry to the `PROTOCOL_NAMES` enum:
+
+First, add an entry to the PROTOCOL_NAMES enum. This should be a unique string value. It will be used in the URL of the direct link to your protocol page, so be sure to choose something appropriate!
 
 ```
 export enum PROTOCOL_NAMES {
-    APHEX_PROTOCOL = "AphexProtocol",
-    BIGFISHJOE_PROTOCOL = "BigfishjoeProtocol",
     BOND_PROTOCOL = "BondProtocol",
-    DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
-    OIGHTY_PROTOCOL = "OightyProtocol",
     OLYMPUS_DAO = "OlympusDAO",
-    TEX_PROTOCOL = "TexProtocol",
+    YOUR_PROTOCOL = "YourProtocol",
 }
 ```
 
