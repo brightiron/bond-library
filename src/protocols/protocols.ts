@@ -1,28 +1,28 @@
 import { CHAIN_ID } from "../chains/chains";
 
 export interface Links {
-  governanceVote: string;
-  twitter?: string;
+  governanceVote: string;   // REQUIRED: Link to a governance vote allowing your protocol to run a BondProtocol market\
+  twitter?: string;         // OPTIONAL links to social media, protocol websites etc
   discord?: string;
   github?: string;
   medium?: string;
   telegram?: string;
   homepage?: string;
   staking?: string;
-  dataStudio?: string;
+  dataStudio?: string;      // Link to data on bond market performance. Not required for verification, we will add when ready.
 }
 
 interface Address {
-  chainId: string;
-  address: string;
-  protocol: PROTOCOL_NAMES;
+  chainId: string;          // e.g. CHAIN_ID.ETHEREUM_MAINNET - See src/chains/chains.ts CHAIN_ID enum for a list of chain IDs.
+  address: string;          // The address you will use to call the create market transaction
+  protocol: PROTOCOL_NAMES; // e.g. PROTOCOL_NAMES.YOUR_PROTOCOL
 }
 
 export interface Protocol {
-  id: string;
-  name: string;
-  logo?: string;
-  description: string;
+  id: string;           // Protocol ID, should be set as PROTOCOL_NAMES.YOUR_PROTOCOL
+  name: string;         // Display name of the protocol, this will be shown in the dapp UI
+  logo?: string;        // URL to your protocol's logo, preferably .png
+  description: string;  // A description of your protocol
   links: Links;
 }
 

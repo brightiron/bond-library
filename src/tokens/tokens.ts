@@ -3,12 +3,12 @@ import { CHAIN_ID } from "../chains/chains";
 import { SUPPORTED_LP_TYPES } from "../lp-pairs";
 
 export interface PriceSource {
-  source: "coingecko" | "nomics" | "custom";
+  source: "coingecko" | "custom";
 }
 
 export interface SupportedPriceSource extends PriceSource {
-  source: "coingecko" | "nomics";
-  apiId: string;
+  source: "coingecko";
+  apiId: string;        // The token's Coingecko API ID
 }
 
 export interface CustomPriceSource extends PriceSource {
@@ -17,20 +17,17 @@ export interface CustomPriceSource extends PriceSource {
 }
 
 export interface Token {
-  name: string;
-  symbol: string;
-  supportedChainIds: CHAIN_ID[];
-  logoUrl?: string;
-  protocol?: PROTOCOL_NAMES;
-  priceSources: Map<number, SupportedPriceSource | CustomPriceSource>;
-  purchaseLinks: Map<CHAIN_ID, string>;
+  name: string;                   // The token name
+  symbol: string;                 // The token symbol
+  logoUrl?: string;               // A URL to the token logo, preferably .png
+  priceSources: Map<number, SupportedPriceSource | CustomPriceSource>;    // A map of price sources for the token. The `number` key represents the price source's priority, lower numbers being higher priority
+  purchaseLinks: Map<CHAIN_ID, string>;   // Map of links to a place where the token can be purchased
 }
 
 export interface LpToken extends Token {
   lpType?: SUPPORTED_LP_TYPES;
   token0Address: string;
   token1Address: string;
-  baseTokenPosition: 0 | 1;
 }
 
 export function getToken(address: string): Token | null {
@@ -40,21 +37,17 @@ export function getToken(address: string): Token | null {
 
 export const getUniqueApiIds = function(): {
   coingecko: Set<string>,
-  nomics: Set<string>,
   } {
   const coingecko: Set<string> = new Set();
-  const nomics: Set<string> = new Set();
 
   for (const token of TOKENS.values()) {
     for (const priceSource of token.priceSources.values()) {
       priceSource.source === "coingecko" && coingecko.add(priceSource.apiId);
-      priceSource.source === "nomics" && nomics.add(priceSource.apiId);
     }
   }
 
   return {
     coingecko: coingecko,
-    nomics: nomics
   };
 };
 
@@ -80,7 +73,6 @@ export const TOKENS = new Map<string, Token>([
       symbol: "ETH",
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, { source: "coingecko", apiId: "ethereum" }],
-        [1, { source: "nomics", apiId: "ETH" }]
       ]),
       purchaseLinks: new Map<CHAIN_ID, string>([
         [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2&chainId=1"],
@@ -97,7 +89,6 @@ export const TOKENS = new Map<string, Token>([
       name: "Governance OHM",
       symbol: "GOHM",
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
-        [1, { source: "nomics", apiId: "GOHM" }],
         [0, { source: "coingecko", apiId: "governance-ohm" }]
       ]),
       purchaseLinks: new Map<CHAIN_ID, string>([
@@ -116,7 +107,6 @@ export const TOKENS = new Map<string, Token>([
       symbol: "OHM",
       priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
         [0, { source: "coingecko", apiId: "olympus" }],
-        [1, { source: "nomics", apiId: "OHM2" }]
       ]),
       purchaseLinks: new Map<CHAIN_ID, string>([
         [CHAIN_ID.ETHEREUM_MAINNET, "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5&chainId=1"],
@@ -260,7 +250,6 @@ export const TOKENS = new Map<string, Token>([
         lpType: SUPPORTED_LP_TYPES.SUSHISWAP,
         token0Address: "goerli_0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4".toLowerCase(),
         token1Address: "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase(),
-        baseTokenPosition: 1,
         priceSources: new Map(),
         purchaseLinks: new Map<CHAIN_ID, string>([
           [CHAIN_ID.GOERLI_TESTNET, "https://app.uniswap.org/#/add/v2/0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4/0x79C950C7446B234a6Ad53B908fBF342b01c4d446"]
