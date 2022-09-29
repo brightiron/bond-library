@@ -1,6 +1,7 @@
 import { CHAIN_ID } from "../chains/chains";
 
 export interface Links {
+  governanceVote: string;
   twitter?: string;
   discord?: string;
   github?: string;
@@ -106,6 +107,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "AphexProtocol",
       description: "We help aphex own his liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
@@ -120,6 +122,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "BigfishjoeProtocol",
       description: "We help bigfishjoe own his liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
@@ -134,6 +137,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "BondProtocol",
       description: "We help protocols own their liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
@@ -148,6 +152,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "DevoltaireProtocol",
       description: "We help devoltaire own his liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
@@ -162,6 +167,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "OightyProtocol",
       description: "We help oighty own his liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
@@ -177,6 +183,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       description:
         "Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.",
       links: {
+        governanceVote: "",
         twitter: "@OlympusDAO",
         github: "https://github.com/OlympusDAO",
         homepage: "https://olympusdao.finanace/",
@@ -191,6 +198,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       name: "TexProtocol",
       description: "We help tex own his liquidity",
       links: {
+        governanceVote: "",
         twitter: "@bond_protocol",
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
