@@ -33,6 +33,7 @@ export enum PROTOCOL_NAMES {
   DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
   OIGHTY_PROTOCOL = "OightyProtocol",
   TEX_PROTOCOL = "TexProtocol",
+  OLYMPUS_DAO = "OlympusDAO",
 }
 
 export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
@@ -100,6 +101,16 @@ const ADDRESSES = [
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0xE5e93C4CBA55e98cCAa2618AC0772CD6fEEB43C5",
     protocol: PROTOCOL_NAMES.TEX_PROTOCOL,
+  },
+  {
+    chainId: CHAIN_ID.ETHEREUM_MAINNET,
+    address: "0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5",
+    protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
+  },
+  {
+    chainId: CHAIN_ID.GOERLI_TESTNET,
+    address: "0xC1863141dc1861122d5410fB5973951c82871d98",
+    protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
   },
 ];
 
@@ -191,6 +202,22 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
         github: "https://github.com/bond-protocol",
         medium: "https://medium.com/@Bond_Protocol",
         homepage: "https://bondprotocol.finance/",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.OLYMPUS_DAO,
+    {
+      id: PROTOCOL_NAMES.OLYMPUS_DAO,
+      name: "OlympusDAO",
+      description: "The Future Decentralized Reserve Currency",
+      links: {
+        governanceVote: "https://snapshot.org/#/olympusdao.eth",
+        twitter: "@olympusdao",
+        github: "https://github.com/OlympusDAO",
+        medium: "https://medium.com/@olympusdao",
+        homepage: "https://olympusdao.finance/",
+        staking: "https://app.olympusdao.finance/#/stake",
       },
     },
   ],

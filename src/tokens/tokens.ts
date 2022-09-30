@@ -221,4 +221,24 @@ export const TOKENS = new Map<string, Token>([
         ])
       }
     ],
+    [
+      [
+        "mainnet_0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5".toLowerCase(),
+        "goerli_0x0595328847af962f951a4f8f8ee9a3bf261e4f6b".toLowerCase(),
+      ],
+      {
+        name: "Olympus",
+        symbol: "OHM",
+        priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+          [0, { source: "coingecko", apiId: "olympus" }],
+        ]),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [
+            CHAIN_ID.ETHEREUM_MAINNET,
+            "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+          ],
+          [CHAIN_ID.GOERLI_TESTNET, "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"],
+        ]),
+      },
+    ],
 ].reduce(mapReducer, []));
