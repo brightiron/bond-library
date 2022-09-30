@@ -249,4 +249,5 @@ export const TOKENS = new Map<string, Token>(
         ]),
       },
     ],
-].reduce(mapReducer, []));
+  ].reduce(mapReducer, [])
+);
