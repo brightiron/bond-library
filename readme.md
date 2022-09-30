@@ -16,7 +16,6 @@ display your market details.
 
 Protocol details should be added to `src/protocols/protocols.ts`.
 
-
 First, add an entry to the PROTOCOL_NAMES enum. This should be a unique string value. It will be used in the URL of the direct link to your protocol page, so be sure to choose something appropriate!
 
 ```
@@ -114,7 +113,7 @@ Add the address/chain combinations to the `ADDRESSES` list. For example:
 In this case, any markets created on Ethereum Mainnet or Goerli Testnet by the
 address `0xda8b43d5DA504A3A418AeEDcE1Ece868536807fA` would be associated with `PROTOCOL_NAMES.BOND_PROTOCOL`, along with
 any created on Goerli Testnet by `0x69442345d059895bd408e7bde8ab1428c009cc83`. In this
-example, `0x69442345d059895bd408e7bde8ab1428c009cc83` would *not* be associated with the protocol on Ethereum Mainnet.
+example, `0x69442345d059895bd408e7bde8ab1428c009cc83` would _not_ be associated with the protocol on Ethereum Mainnet.
 
 After this, make a pull request to the `develop` branch. If you do not have your own UI or other alternative, we
 strongly recommend waiting until it has been accepted before creating a market.

@@ -1,4 +1,4 @@
-import {CHAIN_ID} from "../chains";
+import { CHAIN_ID } from "../chains";
 
 export interface ContractAddress {
   authority: string;
