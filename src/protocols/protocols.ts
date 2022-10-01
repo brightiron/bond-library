@@ -21,7 +21,7 @@ interface Address {
 export interface Protocol {
   id: string; // Protocol ID, should be set as PROTOCOL_NAMES.YOUR_PROTOCOL
   name: string; // Display name of the protocol, this will be shown in the dapp UI
-  logo?: string; // URL to your protocol's logo, preferably .png
+  logoUrl?: string; // URL to your protocol's logo, preferably .png
   description: string; // A description of your protocol
   links: Links;
 }
@@ -211,6 +211,7 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
       id: PROTOCOL_NAMES.OLYMPUS_DAO,
       name: "OlympusDAO",
       description: "The Future Decentralized Reserve Currency",
+      logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/OLYMPUSDAO.png",
       links: {
         governanceVote: "https://snapshot.org/#/olympusdao.eth",
         twitter: "@olympusdao",

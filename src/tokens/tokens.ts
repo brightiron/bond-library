@@ -66,16 +66,14 @@ export const TOKENS = new Map<string, Token>(
         "goerli_0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6".toLowerCase(),
       ],
       {
-        name: "Ethereum",
-        symbol: "ETH",
+        name: "Wrapped Ethereum",
+        symbol: "WETH",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/WETH.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [0, { source: "coingecko", apiId: "ethereum" }],
         ]),
         purchaseLinks: new Map<CHAIN_ID, string>([
-          [
-            CHAIN_ID.ETHEREUM_MAINNET,
-            "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2&chainId=1",
-          ],
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"],
           [
             CHAIN_ID.GOERLI_TESTNET,
             "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6&chainId=5",
@@ -128,10 +126,14 @@ export const TOKENS = new Map<string, Token>(
       },
     ],
     [
-      ["goerli_0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C".toLowerCase()],
+      [
+        "mainnet_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48".toLowerCase(),
+        "goerli_0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C".toLowerCase(),
+      ],
       {
-        name: "Mock USDC",
+        name: "USD Coin",
         symbol: "USDC",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/WETH.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [
             0,
@@ -141,7 +143,10 @@ export const TOKENS = new Map<string, Token>(
             },
           ],
         ]),
-        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]]),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"],
+          [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"],
+        ]),
       },
     ],
     [
@@ -162,10 +167,14 @@ export const TOKENS = new Map<string, Token>(
       },
     ],
     [
-      ["goerli_0x2899a03ffdab5c90badc5920b4f53b0884eb13cc".toLowerCase()],
+      [
+        "mainnet_0x6b175474e89094c44da98b954eedeac495271d0f".toLowerCase(),
+        "goerli_0x2899a03ffdab5c90badc5920b4f53b0884eb13cc".toLowerCase(),
+      ],
       {
-        name: "Mock DAI 4",
-        symbol: "DAI4",
+        name: "DAI",
+        symbol: "DAI",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/DAI.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [
             0,
@@ -175,14 +184,21 @@ export const TOKENS = new Map<string, Token>(
             },
           ],
         ]),
-        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]]),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"],
+          [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"],
+        ]),
       },
     ],
     [
-      ["goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase()],
+      [
+        "mainnet_0xdac17f958d2ee523a2206206994597c13d831ec7".toLowerCase(),
+        "goerli_0x79C950C7446B234a6Ad53B908fBF342b01c4d446".toLowerCase(),
+      ],
       {
-        name: "Mock USDT",
+        name: "Tether USD",
         symbol: "USDT",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/USDT.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [
             0,
@@ -192,7 +208,10 @@ export const TOKENS = new Map<string, Token>(
             },
           ],
         ]),
-        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"]]),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"],
+          [CHAIN_ID.GOERLI_TESTNET, "https://app.compound.finance/"],
+        ]),
       },
     ],
     [
@@ -237,6 +256,7 @@ export const TOKENS = new Map<string, Token>(
       {
         name: "Olympus",
         symbol: "OHM",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/OLYMPUSDAO.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [0, { source: "coingecko", apiId: "olympus" }],
         ]),
@@ -246,6 +266,70 @@ export const TOKENS = new Map<string, Token>(
             "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
           ],
           [CHAIN_ID.GOERLI_TESTNET, "https://app.balancer.fi/#/trade/ether/0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"],
+        ]),
+      },
+    ],
+    [
+      ["mainnet_0x853d955acef822db058eb8505911ed77f175b99e".toLowerCase()],
+      {
+        name: "FRAX",
+        symbol: "FRAX",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/FRAX.png",
+        priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+          [
+            0,
+            {
+              source: "custom",
+              customPriceFunction: async () => "1.00",
+            },
+          ],
+        ]),
+        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"]]),
+      },
+    ],
+    [
+      ["mainnet_0x5f98805a4e8be255a32880fdec7f6728c6568ba0".toLowerCase()],
+      {
+        name: "Liquity USD",
+        symbol: "LUSD",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/LUSD.png",
+        priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+          [
+            0,
+            {
+              source: "custom",
+              customPriceFunction: async () => "1.00",
+            },
+          ],
+        ]),
+        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"]]),
+      },
+    ],
+    [
+      ["mainnet_0x2260fac5e5542a773aa44fbcfedf7c193bc2c599".toLowerCase()],
+      {
+        name: "Wrapped Bitcoin",
+        symbol: "WBTC",
+        logoUrl: "https://storageapi.fleek.co/fc635ae1-c8aa-4181-b7db-801a533b8fa9-bucket/WBTC.png",
+        priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+          [0, { source: "coingecko", apiId: "wrapped-bitcoin" }],
+        ]),
+        purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"]]),
+      },
+    ],
+    [
+      ["mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase()],
+      {
+        name: "Governance OHM",
+        symbol: "GOHM",
+        priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
+          [0, { source: "coingecko", apiId: "governance-ohm" }],
+        ]),
+        purchaseLinks: new Map<CHAIN_ID, string>([
+          [
+            CHAIN_ID.ETHEREUM_MAINNET,
+            "https://app.uniswap.org/#/swap?inputCurrency=0x0ab87046fbb341d058f17cbc4c1133f25a20a52f&outputCurrency=ETH",
+          ],
         ]),
       },
     ],
