@@ -318,7 +318,10 @@ export const TOKENS = new Map<string, Token>(
       },
     ],
     [
-      ["mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase()],
+      [
+        "mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase(),
+        "goerli_0xC1863141dc1861122d5410fB5973951c82871d98".toLowerCase(),
+      ],
       {
         name: "Governance OHM",
         symbol: "GOHM",
