@@ -1,6 +1,6 @@
 {
   "name": "@bond-protocol/bond-library",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "author": "spaceturtleship <spaceturtleship@protonmail.com>",
   "license": "MIT",
   "private": false,
@@ -33,7 +33,8 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "typechain": "typechain --target ethers-v5 --out-dir src/lp-pairs/contracts 'src/lp-pairs/abis/*.json'",
     "prepare": "husky install",
-    "scriptname": "husky install"
+    "scriptname": "husky install",
+    "npm-publish": "yarn build && npm publish --access public"
   },
   "dependencies": {
     "axios": "^0.27.2",
