@@ -73,7 +73,7 @@ export const TOKENS = new Map<string, Token>(
           [0, { source: "coingecko", apiId: "ethereum" }],
         ]),
         purchaseLinks: new Map<CHAIN_ID, string>([
-          [CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"],
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://app.uniswap.org/#/swap"],
           [
             CHAIN_ID.GOERLI_TESTNET,
             "https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6&chainId=5",
