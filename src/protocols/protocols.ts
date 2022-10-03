@@ -33,6 +33,7 @@ export enum PROTOCOL_NAMES {
   DEVOLTAIRE_PROTOCOL = "DevoltaireProtocol",
   TEX_PROTOCOL = "TexProtocol",
   OLYMPUS_DAO = "OlympusDAO",
+  SHAPESHIFT_DAO = "ShapeShiftDAO"
 }
 
 export const getProtocolByAddress = function (address: string, chain: CHAIN_ID | string): Protocol | null {
@@ -105,6 +106,11 @@ const ADDRESSES = [
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0x19518E4D4E542f4b0Fc27366C23FaC7a0bA491Da",
     protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
+  },
+  {
+    chainId: CHAIN_ID.ETHEREUM_MAINNET,
+    address: "0xc770EEfAd204B5180dF6a14Ee197D99d808ee52d",
+    protocol: PROTOCOL_NAMES.SHAPESHIFT_DAO,
   },
 ];
 
@@ -198,6 +204,23 @@ export const PROTOCOLS = new Map<PROTOCOL_NAMES, Protocol>([
         medium: "https://medium.com/@olympusdao",
         homepage: "https://olympusdao.finance/",
         staking: "https://app.olympusdao.finance/#/stake",
+      },
+    },
+  ],
+  [
+    PROTOCOL_NAMES.SHAPESHIFT_DAO,
+    {
+      id: PROTOCOL_NAMES.SHAPESHIFT_DAO,
+      name: "ShapeShiftDAO",
+      description: "All the wallets. All the chains. All the protocols. Join our vision at ShapeShift.com",
+      logoUrl: "https://ipfs.io/ipfs/bafkreibggpxpfxxnxkudvlj5bherkjpjjetzzxbmfaquigbvhqg5xkx4li?filename=fox-token.png",
+      links: {
+        governanceVote: "https://snapshot.org/#/shapeshiftdao.eth",
+        twitter: "@shapeshift",
+        github: "https://github.com/shapeshift",
+        medium: "https://medium.com/@shapeshift.com",
+        homepage: "https://shapeshift.com/",
+        staking: "https://app.shapeshift.com/#/demo/defi/earn",
       },
     },
   ],
