@@ -109,7 +109,7 @@ const ADDRESSES = [
   },
   {
     chainId: CHAIN_ID.ETHEREUM_MAINNET,
-    address: "0xc770EEfAd204B5180dF6a14Ee197D99d808ee52d",
+    address: "0x90a48d5cf7343b08da12e067680b4c6dbfe551be",
     protocol: PROTOCOL_NAMES.SHAPESHIFT_DAO,
   },
 ];
