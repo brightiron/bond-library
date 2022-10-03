@@ -317,23 +317,25 @@ export const TOKENS = new Map<string, Token>(
         purchaseLinks: new Map<CHAIN_ID, string>([[CHAIN_ID.ETHEREUM_MAINNET, "https://curve.fi/"]]),
       },
     ],
-    {
+    [
+      ["mainnet_0xc770eefad204b5180df6a14ee197d99d808ee52d".toLowerCase()],
+      {
         name: "ShapeShift FOX Token",
         symbol: "FOX",
-        logoUrl: "https://ipfs.io/ipfs/bafkreibggpxpfxxnxkudvlj5bherkjpjjetzzxbmfaquigbvhqg5xkx4li?filename=fox-token.png",
+        logoUrl:
+          "https://ipfs.io/ipfs/bafkreibggpxpfxxnxkudvlj5bherkjpjjetzzxbmfaquigbvhqg5xkx4li?filename=fox-token.png",
         priceSources: new Map<number, SupportedPriceSource | CustomPriceSource>([
           [0, { source: "coingecko", apiId: "shapeshift-fox-token" }],
         ]),
         purchaseLinks: new Map<CHAIN_ID, string>([
-          [
-            CHAIN_ID.ETHEREUM_MAINNET,
-            "https://app.shapeshift.com/#/demo/trade",
+          [CHAIN_ID.ETHEREUM_MAINNET, "https://app.shapeshift.com/#/demo/trade"],
         ]),
       },
     ],
     [
       [
-        "mainnet_0xc770eefad204b5180df6a14ee197d99d808ee52d".toLowerCase(),
+        "mainnet_0x0ab87046fbb341d058f17cbc4c1133f25a20a52f".toLowerCase(),
+        "goerli_0xC1863141dc1861122d5410fB5973951c82871d98".toLowerCase(),
       ],
       {
         name: "Governance OHM",
