@@ -111,9 +111,7 @@ const ADDRESSES = [
     chainId: CHAIN_ID.GOERLI_TESTNET,
     address: "0x19518E4D4E542f4b0Fc27366C23FaC7a0bA491Da",
     protocol: PROTOCOL_NAMES.OLYMPUS_DAO,
-  },
-  
-  
+  }, 
   {
     chainId: CHAIN_ID.ETHEREUM_MAINNET,
     address: "0x90a48d5cf7343b08da12e067680b4c6dbfe551be",
